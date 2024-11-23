@@ -1,0 +1,124 @@
+<html>
+
+<style>
+    #paragraphs {
+        color: black;
+
+    }
+
+    #slider1 {
+        color: black;
+
+    }
+
+    #button {
+        color: white;
+        background: green;
+        align-content: center;
+    }
+</style>
+
+<body>
+
+    <div id="paragraphs">Paragraphs:
+        <input id="slider1" type="range" min="1" max="100">
+        <input id="t2" type="text" width="20">
+        <br>
+    </div>
+
+    <div id="wpm">Words per Paragraph:
+        <input id="slider2" type="range" min="1" max="100">
+        <input id="t3" type="text" width="20">
+    </div>
+    <br>
+    </div>
+    <div id="tag">Tag:
+
+
+        <select id="includeOptions"></select>
+
+    </div>
+    <br>
+
+    </div>
+    <div id="HTML">Include HTML:
+        <select id="includeOptions1"></select>
+    </div>
+    <br>
+
+    <button id="button" type="submit" onclick="doWork()">Generate Lorem Ipsum</button>
+    <div id="ta1">
+        <input  id ="td1" type="text" length ="1200" width="1200">
+
+    </div>
+    <div>
+
+
+
+</body>
+
+<script>        
+const ipsum = "What is Lorem Ipsum ? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+    document.querySelector("#slider1").addEventListener("input", function () {
+        document.querySelector("#t2").value = document.querySelector("#slider1").value
+    })
+
+    document.querySelector("#slider2").addEventListener("input", function () {
+        document.querySelector("#t3").value = document.querySelector("#slider2").value
+
+        console.log(document.querySelector("#t3").value)
+
+
+        const num = document.querySelector("#slider2").value
+       doWork(num)
+
+    })
+
+ function doWork(numx) {
+            console.log("Inside doWork")
+            const a = ipsum.slice(0, numx)
+            document.querySelector("#td1").value=a;
+            console.log(a);
+        }
+
+    const map1 = new Map([
+
+        ["p", "p"],
+        ["h1", "h1"],
+        ["h2", "h2"],
+        ["h3", "h3"],
+        ["h4", "h4"],
+        ["h5", "h5"],
+        ["span", "span"]
+    ])
+
+    var includeOptions = document.querySelector("#includeOptions")
+
+    function a(mapx, displayItem) {
+        // Iterate over the Map
+        mapx.forEach(function (value, key) {
+            // Create a new <option> element
+            var option = document.createElement("option");
+            option.value = value; // Set the value of the option
+            option.textContent = key; // Set the text content of the option
+            displayItem.appendChild(option); // Add the option to the dropdown
+        });
+    }
+
+
+    a(map1, includeOptions);
+
+    const map3 = new Map([
+
+        ["Yes", "Yes"],
+        ["No", "No"],
+    ])
+
+    var includeOptions1 = document.querySelector("#includeOptions1")
+
+    a(map3, includeOptions1);
+
+</script>
+
+</html>
