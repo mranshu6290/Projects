@@ -1,0 +1,92 @@
+<html>
+
+<head>
+
+</head>
+<style>
+    #heading1 {
+        color: green;
+        text-align: center;
+    }
+
+    #heading2 {
+
+        color: green;
+        text-align: center
+    }
+
+    #attributes {
+
+        color: black;
+        text-align: left;
+    }
+
+    #t1,
+    #t2,
+    #t3,
+    #t4 {
+        background-color: hwb(0 89% 10%);
+    }
+
+    #b1
+    {
+        align-items: center;
+        align-self: center;
+        
+    }
+</style>
+
+<body>
+
+   
+    <div id="heading1">
+        <h1>Geek for Geeks</h1>
+    </div>
+
+    <div id="heading2">
+        <h2>Price Range Slider </h2>
+    </div>
+
+    <div id="attributes">
+        <label for="t1">Minimum Price</label>
+        <textarea id="t1"></textarea>
+        <br>
+
+        <br>
+        <label for="t2">Maxmum Price</label>
+        <textarea id="t2"></textarea>
+
+        <input id ="Slider" type="range" max="100" min="0">
+
+    </div>
+
+    <br>
+<button id="b1" type="submit" onclick="buttonclicked()">Submit</button>
+
+<div id="output">
+
+    Output Max <textarea id="t3"></textarea>
+    <br>
+
+    Output Min <textarea id="t4"></textarea>
+
+</div>
+
+    <script>
+
+        document.querySelector('#slider').addEventListener("input", function() {
+            document.querySelector('#t3').value=document.querySelector('#slider').value
+        })
+function buttonclicked() {
+    const maxPrice=document.querySelector("#t2").value
+    const minPrice=document.querySelector("#t1").value
+
+    
+    console.log (maxPrice)
+}
+
+    </script>
+
+</body>
+
+</html>
